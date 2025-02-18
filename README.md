@@ -70,3 +70,8 @@ Use the following config for process-level training:
 
 Please refer to 
 `./tools/qwen_eval/eval/README.md`
+
+## Acknowledgement
+The code refer to [huggingface/trl](https://github.com/huggingface/trl).
+The evaluation toolkit is built on [QwenLM/Qwen2.5-Math](https://github.com/QwenLM/Qwen2.5-Math).
+Thanks for their wonderful work.
