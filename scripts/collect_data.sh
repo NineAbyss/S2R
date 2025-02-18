@@ -1,0 +1,3 @@
+python ./tools/1_collect_data_from_llm.py --model_name_or_path Qwen/Qwen2.5-Math-7B --data_dir DATA_PATH --data_name DATA_NAME --output_file OUTPUT_PATH
+python ./tools/2_collect_verification.py --original_file_path DATA_PATH --output_file OUTPUT_PATH --reference_file_path REFERENCE_FILE_PATH --api_key API_KEY --api_url API_URL --model_name_or_path MODEL_NAME
+python ./tools/3_contruct_muliti_turn_data.py --response_file_path RESPONSE_FILE_PATH --verification_file_path VERIFICATION_FILE_PATH --output_file OUTPUT_PATH --model_name_or_path MODEL_NAME
