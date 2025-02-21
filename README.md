@@ -9,7 +9,7 @@
 
 This is the official implementation of the following paper:
 
-> **S²R: Teaching LLMs to Self-verify and Self-correct via Reinforcement Learning** [[Paper]()]
+> **S²R: Teaching LLMs to Self-verify and Self-correct via Reinforcement Learning** [[Paper](https://www.arxiv.org/abs/2502.12853)]
 
 <p align="center"><img width="90%" src="figs/main.png" /></p>
 <p align="center"><em>The overview of S²R.</em></p>
@@ -35,6 +35,8 @@ Configure the model and data path in `./scripts/collect_data.sh`
 sh ./scripts/collect_data.sh
 ```
 We also provide the SFT and RL data in `data/train_data/sft_qwen2.5_math_7B.json` and `data/train_data/rl_data_qwen2.5.jsonl` for reproducing the result of Qwen2.5-Math-7B in our paper.
+
+We also support using our datasets via [Hugging Face](https://huggingface.co/datasets/S2R-data/S2R-dataset) now! 
 
 
 ## 3. SFT Training 🔥
