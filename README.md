@@ -73,6 +73,18 @@ Use the following config for process-level training:
 Please refer to 
 `./tools/qwen_eval/eval/README.md`
 
+## 🌟 Cite
+
+```tex
+@article{ma2025s,
+  title={S $\^{} 2$ R: Teaching LLMs to Self-verify and Self-correct via Reinforcement Learning},
+  author={Ma, Ruotian and Wang, Peisong and Liu, Cheng and Liu, Xingyan and Chen, Jiaqi and Zhang, Bang and Zhou, Xin and Du, Nan and Li, Jia},
+  journal={arXiv preprint arXiv:2502.12853},
+  year={2025}
+}
+```
+
+
 ## Acknowledgement
 The code refer to [huggingface/trl](https://github.com/huggingface/trl).
 The evaluation toolkit is built on [QwenLM/Qwen2.5-Math](https://github.com/QwenLM/Qwen2.5-Math).
