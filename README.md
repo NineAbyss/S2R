@@ -47,7 +47,7 @@ Configure your data and model path, then run:
 sh ./code/scripts/train_sft.sh
 ```
 
-## 4. RL Training 🚀 
+## 4. Online RL Training 🚀 
 
 Configure your data and model path, then run:
 ```
@@ -68,7 +68,31 @@ Use the following config for process-level training:
 --rl_data_path ./data/train_data/rl_data_qwen2.5.jsonl  # for Qwen2.5-Math_7B
 ```
 
-## 5. Evaluation
+## 5. Offline RL Training 💼
+
+### Rejection Sampling and Prompt Filtering
+
+For offline sampling rollouts, run the following script to specify the prompt dataset (including problem and answer), the model path, and the storage path:
+```shell
+sh ./sample/sample_all.sh
+```
+
+The format of the prompt dataset should follow the reference:
+`./data/train_data/rl_data_offline.jsonl`
+
+
+Configure your data path, then run for rejection sampling and prompt filtering:
+```shell
+sh ./scripts/process_offline_trainset.sh
+```
+
+### Training Script
+Configure your data and model path, then run:
+```shell
+sh ./scripts/train_offline_rl.sh
+```
+
+## 6. Evaluation
 
 Please refer to 
 `./tools/qwen_eval/eval/README.md`
