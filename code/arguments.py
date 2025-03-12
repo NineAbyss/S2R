@@ -1,7 +1,8 @@
 """Arguments for training NPC chat planning model."""
 
 from dataclasses import dataclass, field
-from typing import Optional, List, Literal
+from typing import Optional, List, Literal, Union
+from pathlib import Path
 import os 
 
 from transformers import TrainingArguments
@@ -164,4 +165,64 @@ class RLOOConfig(OfflineWeightedPolicyTrainingArguments):
     # mini_batch_size: Optional[int] = None
     use_tf32_forward: bool = False
     use_instance_level: bool = False
+
+
+@dataclass
+class OfflineRLConfig(OfflineWeightedPolicyTrainingArguments):
+    r"""
+    Configuration class for the [`OfflineRLTrainer`].
+
+    Using [`~transformers.HfArgumentParser`] we can turn this class into
+    [argparse](https://docs.python.org/3/library/argparse#module-argparse) arguments that can be specified on the
+    command line.
+
+    Parameters:
+        exp_name (`str`, *optional*, defaults to `os.path.basename(__file__)[: -len(".py")]`):
+            Name of this experiment.
+        reward_model_path (`str`, *optional*, defaults to `"EleutherAI/pythia-160m"`):
+            Path to the reward model.
+        whiten_rewards (`bool`, *optional*, defaults to `False`):
+            Whether to whiten the rewards.
+    """
+
+    exp_name: str = os.path.basename(__file__)[: -len(".py")]
+    reward_model_path: str = None
+    num_ppo_epochs: int = 1
+    whiten_rewards: bool = False
+    run_name: Optional[str] = None
+    dataset_num_proc: Optional[int] = None
+    num_mini_batches: int = 1
+    total_episodes: Optional[int] = None
+    stop_token: Optional[Literal["eos"]] = None
+    stop_token_id: Optional[int] = None
+    temperature: float = 0.7
+    sft_model_path: str = "EleutherAI/pythia-160m"
+    num_total_batches: Optional[int] = None
+    micro_batch_size: Optional[int] = None
+    local_batch_size: Optional[int] = None
+    dump_data_path: str = None
+    restart_step: int = 0
+    step_num_per_stage: int = 0
+
+    reward_save_path: Union[str, Path] = None
+    reward_load_path: Union[str, Path] = None
+
+    use_bonus: bool = False
+    use_veri_bonus: bool = False
+    debug_mode: bool = False
+
+    use_sft_loss: bool = False
+    use_baseline: bool = False
+    use_weight: bool = False
+
+    reward_delay_factor: float = 1.0
+
+    use_prefix_baseline: bool = False
+    use_level_baseline: bool = False
+    use_position_baseline: bool = False
+    use_accuracy_baseline: bool = False
+    use_softmax_norm: bool = False
+
+    use_process_rl: bool = True
     
+    min_group_baseline: int = 10
