@@ -120,7 +120,7 @@ def train():
     args.report_to = ["wandb"]
     os.environ["WANDB_PROJECT"] = "train_offline_rl" 
     os.environ["WANDB_NAME"] = args.output_dir.split("/")[-1]
-    os.environ["WANDB_API_KEY"] = "8f13f690572e222386323322d6520995df4f1646"
+    os.environ["WANDB_API_KEY"] = "xxxxxxxxxx"
     os.environ["WANDB_MODE"] = "offline"
 
     train_dataset = OfflineRLDataset(
